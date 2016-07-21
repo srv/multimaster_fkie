@@ -401,8 +401,11 @@ class UcastSocket(socket.socket):
         # Required to receive unicast UDP
 #        self.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         if hasattr(socket, "SO_REUSEPORT"):
-            rospy.loginfo("  set socketopt SO_REUSEPORT")
-            self.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+            try:
+                rospy.loginfo("  set socketopt SO_REUSEPORT")
+                self.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+            except:
+                rospy.logwarn("can not set SO_REUSEPORT option to the socket")
 
         # Bind to the port
         try:
