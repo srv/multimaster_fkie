@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # Original code from https://github.com/jhu-lcsr-forks/fkie_multimaster/tree/param-sync
 # adapt to change only local ROS Parameter Server
 
